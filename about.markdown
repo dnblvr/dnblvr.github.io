@@ -24,4 +24,3 @@ You can cite the project as:
 
 - Email: [{{ site.email }}](mailto:{{ site.email }})
 - Twitter: [@thecarpentries](https://twitter.com/thecarpentries)
-

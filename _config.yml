@@ -34,6 +34,12 @@ github_username:  dnblvr
 github_link: "https://github.com/dnblvr"
 
 # Build settings
+markdown: kramdown
+kramdown:
+  math_engine: null
+  input: GFM
+  hard_wrap: false
+
 theme: minima
 plugins:
   - jekyll-feed
