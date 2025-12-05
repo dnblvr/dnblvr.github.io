@@ -32,6 +32,8 @@ Have any questions about what we do? [We'd love to hear from you!](mailto:{{ sit
 
 I am using this [wonderful site][] to check my progress and follow up. YAML is a funny word. Also, the hovering text that typically works in regular markdown doesn't work here. buh-buh-beta.
 
+lol it actually does work here. neat.
+
 [wonderful site]: https://carpentry.library.ucsb.edu/2022-01-31-ucsb-webpub-online/05-starting-jekyll/ "Web Publishing with GitHub Pages: Starting With Jekyll - UCSB"
 
 ## 3. Contact Us
