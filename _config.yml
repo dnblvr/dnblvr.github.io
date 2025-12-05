@@ -27,8 +27,11 @@ description: >- # this means to ignore newlines until "baseurl:"
   This is a repository for all my bs I'm interested in. I've edited this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description. That seems exciting.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://dnblvr.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+twitter_username: liquid_lvr
+twitter_link: "https://twitter.com/liquid_lvr"
+joke_twitter_username: liquid_commissary
+github_username:  dnblvr
+github_link: "https://github.com/dnblvr"
 
 # Build settings
 theme: minima

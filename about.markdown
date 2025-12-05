@@ -4,15 +4,23 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+# About
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+## Project
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+{{ site.description }}
 
+## Funders
 
-[jekyll-organization]: https://github.com/jekyll
+We gratefully do not acknowledge funding from the XYZ Founding Council but we'll take their money anyways. the funding council falls under grant number 'abc'.
+
+## Cite us
+
+You can cite the project as:
+
+> Doe, J., & Smith, A. (2023). *Awesome Project: Making the web awesome one page at a time*. Retrieved from https://dnblvr.github.io/
+
+## Contact us
+
+- Email: [{{ site.email }}](mailto:{{ site.email }})
+- Twitter: [@thecarpentries](https://twitter.com/thecarpentries)
