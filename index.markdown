@@ -4,3 +4,36 @@
 
 layout: home
 ---
+
+<!-- omit in toc -->
+# Building my first website in GitHub
+
+<!-- omit in toc -->
+## Contents
+
+- [1. Description](#1-description)
+- [2. References](#2-references)
+- [3. Contact Us](#3-contact-us)
+
+---
+
+## 1. Description
+
+{{ site.description }}
+
+More details about the project are available from the [About page](about).
+
+Have any questions about what we do? [We'd love to hear from you!](mailto:{{ site.email }})
+
+## 2. References
+
+I am using this [wonderful site][] to check my progress and follow up. YAML is a funny word.
+
+[wonderful site]: https://carpentry.library.ucsb.edu/2022-01-31-ucsb-webpub-online/05-starting-jekyll/ "Web Publishing with GitHub Pages: Starting With Jekyll - UCSB"
+
+## 3. Contact Us
+
+Do not contact me unless you're one of my siblings. If you *must*:
+
+- email: [{{ site.email }}](mainto:{{ site.email }})
+- Twitter/X: [@liquid_commissar](https://x.com/SenSanders)
