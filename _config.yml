@@ -18,20 +18,26 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Gian Fajardo and his Shenanigans
+title: My Shenanigans
 email: gianfajardo.prim@gmail.com
-  # Your name for the copyright statements
+
+# Your name for the copyright statements
 author: Gian Fajardo
-  # This is the description of your site used in the meta data
+
+# This is the description of your site used in the meta data
 description: >- # this means to ignore newlines until "baseurl:"
   This is a repository and blog for all my interests. Thank you for visiting!
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://dnblvr.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
-# twitter_username: liquid_lvr
-# twitter_link: "https://twitter.com/liquid_lvr"
-# joke_twitter_username: liquid_commissary
 github_username:  dnblvr
 github_link: "https://github.com/dnblvr"
+
+# Custom logos
+logo_1: /assets/img/logo_1.jpg
+logo_1_description: "REA Poster Art"
+
+logo: logo_1
+logo_description: logo_1_description
 
 # Build settings
 markdown: kramdown
@@ -46,6 +52,7 @@ plugins:
   - jekyll-feed
   - jekyll-remote-theme
   - jemoji
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.

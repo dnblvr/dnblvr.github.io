@@ -12,6 +12,7 @@
     <![endif]-->
     {% include head-custom.html %}
 
+
     <!-- MathJax for math rendering -->
     <script>
       MathJax = {
@@ -25,34 +26,50 @@
         }
       };
     </script>
-    <script type="text/javascript" id="MathJax-script" async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    <script
+      type= "text/javascript"
+      id  = "MathJax-script" async
+      src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
     </script>
 
+
     <!-- Mermaid for diagrams -->
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js">
+    </script>
     <script>
       mermaid.initialize({ startOnLoad: true, theme: 'default' });
       mermaid.contentLoaded();
     </script>
+
+
   </head>
+
   <body>
     <div class="wrapper">
       <header>
         <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
+
+
         {% if site.logo %}
-          <img src="{{site.logo | relative_url}}" alt="Logo" />
+          <img src="{{ site[site.logo] | relative_url }}" alt="{{ site.logo_description }}" />
+          <p><i> {{ site[site.logo_description] }} </i></p>
         {% endif %}
+
+
         <p>{{ site.description | default: site.github.project_tagline }}</p>
+
 
         {% if site.github.is_project_page %}
         <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub <small>{{ site.github.repository_nwo }}</small></a></p>
         {% endif %}
 
+
         {% if site.github.is_user_page %}
         <p class="view"><a href="{{ site.github.owner_url }}">View My GitHub Profile</a></p>
         {% endif %}
+        
 
+        <!-- I might delete this -->
         {% if site.show_downloads %}
         <ul class="downloads">
           <li><a href="{{ site.github.zip_url }}">Download <strong>ZIP File</strong></a></li>
@@ -60,6 +77,28 @@
           <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
         </ul>
         {% endif %}
+
+        <hr>
+
+        <!-- Table of Contents (if enabled) -->
+        {% if page.toc %}
+        {% assign title_h1 = heading | split: '</h1>' | first | split: '>' | last %}
+        {% assign id_h1 = title | slugify %}
+        {% assign headings = content | split: '<h2' %}
+          {% if headings.size > 1 %}
+          <h3>Contents <small><a href="#{{ id_h1 }}"> :link: </small> </a></h3>
+          <ul>
+            {% for heading in headings offset:1 %}
+              {% assign title = heading | split: '</h2>' | first | split: '>' | last %}
+              {% assign id = title | slugify %}
+              <li><a href="#{{ id }}">{{ title }}</a></li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+
+        <hr>
+        {% endif %}
+
       </header>
       <section>
 
@@ -68,11 +107,12 @@
       </section>
       <footer>
         {% if site.github.is_project_page %}
-        <p>This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
+        <p>This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.author }} / {{ site.github.owner_name }}</a></p>
         {% endif %}
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/pages-themes">pages-themes</a></small></p>
       </footer>
     </div>
+
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
     {% if site.google_analytics %}
     <script>

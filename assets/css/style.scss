@@ -1,0 +1,28 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+// Custom sidebar width variable
+$sidebar-width: 240px;  
+
+// Custom width adjustments for sidebar
+header {
+  width: $sidebar-width;  // Increased from default ~270px
+}
+
+section {
+  width: calc(100% - 240px - 40px);  // Adjusts to fill remaining space
+//   width: calc(100% - $sidebar-width - 40px);  // Adjusts to fill remaining space
+}
+
+@media (max-width: 960px) {
+  header {
+    width: auto;
+    position: relative;
+  }
+  
+  section {
+    width: auto;
+  }
+}

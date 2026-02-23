@@ -1,8 +1,10 @@
 ---
 layout: post
-title:  "Test Implementation!"
-date:   2025-12-04 17:22:48 -0800
+title: "Test Implementation!"
+date: 2025-12-04 17:22:48 -0800
 categories: jekyll update
+tags: hi
+toc: true
 ---
 
 <!-- omit in toc -->
@@ -13,11 +15,11 @@ categories: jekyll update
 
 - [1. All about Jekyll](#1-all-about-jekyll)
 - [2. Code](#2-code)
+  - [2.1. Ruby](#21-ruby)
+  - [2.2. Python](#22-python)
 - [3. TeX Equations](#3-tex-equations)
 - [4. Mermaid Diagrams](#4-mermaid-diagrams)
 - [5. Embedded Videos](#5-embedded-videos)
-
-<br>
 
 ---
 
@@ -39,7 +41,11 @@ incidentally, I am using this [wonderful site][] to check my progress and follow
 
 ## 2. Code
 
-Jekyll also offers powerful support for code snippets:
+Jekyll also offers powerful support for code snippets [^1].
+
+[^1]: this is a note
+
+### 2.1. Ruby
 
 ```ruby
 def print_hi(name)
@@ -49,8 +55,13 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 ```
 
+### 2.2. Python
+
 ```python
-print("hello world")
+def hello(name: str = "you shmuck") -> None:
+  print(f"hello, {name.upper()}!")
+
+hello("you")
 ```
 
 ## 3. TeX Equations
@@ -172,7 +183,7 @@ flowchart LR
 ## 5. Embedded Videos
 
 <iframe
-  width="959" height="539"
+  width="480" height="270"
   src="https://www.youtube.com/embed/sRW00qtj8A0"
   title="Music From &#39;The Humanist Report&#39; | The Full Collection"
   frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"
