@@ -5,6 +5,7 @@
 layout: home
 ---
 
+<!-- markdownlint-disable MD026 -->
 <!-- markdownlint-disable MD033 -->
 
 <!-- omit in toc -->
@@ -12,13 +13,13 @@ layout: home
 
 > :warning: **UNDER CONSTRUCTION** :warning:
 
-## Description
+## Welcome to {{ site.title }}!
 
 {{ site.description }}
 
-More details about thi project and all of my details are available from the [About page][].
+More details about this project and all of my details are available from the [About page][].
 
-Have any questions about what we do? [We'd love to hear from you!](mailto:{{ site.email }})
+Have any questions about what we do? [I'd love to hear from you!](mailto:{{ site.email }})
 
 [About page]: (about)
 

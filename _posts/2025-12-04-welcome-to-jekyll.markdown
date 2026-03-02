@@ -27,6 +27,8 @@ toc: true
 
 ## 1. All about Jekyll
 
+Here's my first post detailing all of the capabilities of a statically-generated Jekyll site. Incidentally, I am using this [wonderful site][] to check my progress and to follow up on more tips and tricks.
+
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
 Jekyll requires blog post files to be named according to the following format:
@@ -34,8 +36,6 @@ Jekyll requires blog post files to be named according to the following format:
 `YEAR-MONTH-DAY-title.MARKUP`
 
 Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
-
-incidentally, I am using this [wonderful site][] to check my progress and follow up.
 
 [wonderful site]: <https://carpentry.library.ucsb.edu/2022-01-31-ucsb-webpub-online/05-starting-jekyll/> "Web Publishing with GitHub Pages: Starting With Jekyll - UCSB"
 
@@ -191,7 +191,6 @@ flowchart LR
 </iframe>
 
 - hey `Tremendous` is actually really good.
-  - "I will eat your ass." - Alex Jones
 
 Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
 
