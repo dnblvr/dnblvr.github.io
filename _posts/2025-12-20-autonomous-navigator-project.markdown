@@ -174,12 +174,20 @@ This is where the Kalman Filter's logic comes in. The Kalman Filter makes use of
 <br>
 The predition mean and covariance, represented as a pink cloud, and the measurement mean and covariance, represented as a green cloud, meet at the middle to give a new estimate, represented as a white cloud.
 
-On the updated state equation, this idea is transmitted through but in a slightly formulaic way. The added estimate $z_n - h(\hat{x}_n)$ is weighted by the Kalman Gain $K$, which is a ratio of the uncertainty in the measurement and the uncertainty in the state. The more certain the measurement is, the more it is weighted in the correction.
+On the updated state equation, this idea is transmitted through but in a slightly formulaic way. The added estimate $z_n - h(\hat{x}_n)$ is weighted by the Kalman Gain.
 
 $$ \begin{align}
-\hat{x}_n &= \hat{x}_n + K (z_n - h(\hat{x}_n)) \\
-P_n &= (I - K H_n) P_n
+\hat{\bold{x}}_n &= \hat{\bold{x}}_n + \bold{K}_n ({\bold{z}}_n - h(\hat{\bold{x}}_n)) \\
+\bold{P}_n &= ({\bold{I}} - \bold{K}_n \bold{H}_n) \bold{P}_n
 \end{align} $$
+
+The Kalman Gain $\bold{K}_n$, which is a ratio of the uncertainty in the measurement and the uncertainty in the state. The more certain the measurement is, the more it is weighted in the correction. It is calculated as follows:
+
+$$ \begin{align}
+\bold{K}_n = \bold{P}_n \bold{H}^T_n (\bold{H}_n \bold{P}_n \bold{H}^T_n + \bold{R}_n)^{-1}
+\end{align} $$
+
+... to be continued ...
 
 <!-- ### 2.3. RPLiDAR C1 -->
 
