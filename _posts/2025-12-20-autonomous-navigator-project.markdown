@@ -31,7 +31,7 @@ This is how this task was performed.
 
 The work I did centered around the MSP432 and various materials I had available to me.
 
-Part of my job was the develop drivers to be able to use these sensors. One of the sensors wwas the budget-freindly RPLiDAR C1, which is a 360-degree 2D LiDAR sensor. As many people will tell you, this exact sensor has an uncooperative SDK that refuses to make itself clear. FOrtunately it was easy to understand it through the application notes.
+Part of my job was the develop drivers to be able to use these sensors. One of the sensors was the budget-friendly RPLiDAR C1, which is a 360-degree 2D LiDAR sensor. As many people will tell you, this exact sensor has an uncooperative SDK that refuses to make itself clear. Fortunately it was easy to understand it through the application notes.
 
 Here's how it goes:
 
@@ -67,47 +67,49 @@ From there we must be able to skip the bytes we don't need and read the data we 
 
 ```mermaid
 ---
-title: State Diagram v1 to define where the limits are  (assumes all the limits have been reached)
+title: State Diagram: Decimation Filter
 ---
 stateDiagram-v2
 
-    state HOLD_0
-    state FIND_PATTERN_1
+    state HOLD
+    state FIND_PATTERN
     state if_choice <<choice>>
-    state ADD_OFFSET_2
-    state SKIP_3
-    state RECORD_4
+    state ADD_OFFSET
+    state SKIP
+    state RECORD
 
 
-    [*] --> HOLD_0: on init
+    [*] --> HOLD: on init
 
-    FIND_PATTERN_1 --> if_choice
-    note left of FIND_PATTERN_1
-      lim = 4*5
+    HOLD --> FIND_PATTERN: current_state == READY
+    note left of HOLD
+      lim = WAIT_INDEX
     end note
 
-    if_choice --> FIND_PATTERN_1: if pattern not found
-    if_choice --> ADD_OFFSET_2: if pattern found
-    note left of ADD_OFFSET_2
-      lim = 5 - offset
+    FIND_PATTERN --> if_choice
+    note left of FIND_PATTERN
+      lim = FIND_INDEX
     end note
 
-    ADD_OFFSET_2 --> SKIP_3
+    if_choice --> FIND_PATTERN: pattern not found
+    if_choice --> ADD_OFFSET: offset != 0
+    if_choice --> RECORD: offset = 0
 
-    SKIP_3 --> HOLD_0: print_counter >= BUFFER_SIZE
-    SKIP_3 --> RECORD_4
-    note left of SKIP_3
-      lim = skip_factor*5
+    ADD_OFFSET --> RECORD
+    note left of ADD_OFFSET
+      lim = offset
     end note
 
-    RECORD_4 --> SKIP_3
-    note right of RECORD_4
-      lim = 5
+    SKIP --> HOLD: interm_buffer_counter > PROCESS_BUFFER_SIZE
+    SKIP --> RECORD
+    note left of SKIP
+      lim = SKIP_INDEX
     end note
 
-    RECORD_4 --> HOLD_0: print_counter >= BUFFER_SIZE
-
-    HOLD_0 --> FIND_PATTERN_1: after processing data
+    RECORD --> SKIP
+    note right of RECORD
+      lim = MSG_LENGTH
+    end note
 ```
 *credit: me*
 
@@ -134,11 +136,11 @@ x_n &= \begin{pmatrix}
           y      \\
           \theta
       \end{pmatrix} \\
-    &= \notag
+    % &= \notag
 \end{align}
 $$
 
-THe other is the expected measurements of the sensor space to the actual model space. The uncertainty in noise is also apparent.
+The other is the expected measurements of the sensor space to the actual model space. The uncertainty in noise is also apparent.
 
 Both are represented with some level of noise and, in practical terms, a Gaussian noise. These noises are represented as ellipsoids whose shape can represent no correlation between any two states of the system, or it can be a covariance matrix.
 
@@ -172,7 +174,7 @@ This is where the Kalman Filter's logic comes in. The Kalman Filter makes use of
 <br>*Credit: bzarg*
 </center>
 <br>
-The predition mean and covariance, represented as a pink cloud, and the measurement mean and covariance, represented as a green cloud, meet at the middle to give a new estimate, represented as a white cloud.
+The prediction mean and covariance, represented as a pink cloud, and the measurement mean and covariance, represented as a green cloud, meet at the middle to give a new estimate, represented as a white cloud.
 
 On the updated state equation, this idea is transmitted through but in a slightly formulaic way. The added estimate $z_n - h(\hat{x}_n)$ is weighted by the Kalman Gain.
 
