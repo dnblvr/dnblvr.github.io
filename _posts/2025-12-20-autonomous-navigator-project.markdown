@@ -67,7 +67,7 @@ From there we must be able to skip the bytes we don't need and read the data we 
 
 ```mermaid
 ---
-title: State Diagram: Decimation Filter
+title: State Diagram - Decimation Filter
 ---
 stateDiagram-v2
 
